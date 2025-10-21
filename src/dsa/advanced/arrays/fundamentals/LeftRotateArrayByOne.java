@@ -1,5 +1,9 @@
 package dsa.advanced.arrays.fundamentals;
-
+/**
+ * Left Rotate Array By One
+ * Time Complexity - O(n)
+ * Space Complexity - O(1)
+ */
 public class LeftRotateArrayByOne {
     public void rotateArrayByOne(int[] nums) {
         int temp = nums[0];
