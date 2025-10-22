@@ -3,20 +3,23 @@ package dsa.advanced.arrays.fundamentals;
 /**
  * Left Rotate Array By K Places
  * Time Complexity - O(n)
- * Space Complexity - O(k)
+ * Space Complexity - O(1)
  */
 public class LeftRotateArrayByKPlaces {
     public void rotateArray(int[] nums, int k) {
         k = k % nums.length;
-        int[] temp = new int[k];
-        for(int i=0;i<k;i++) {
-            temp[i] = nums[i];
-        }
-        for(int i=0;i<nums.length-k;i++) {
-            nums[i] = nums[i+k];
-        }
-        for(int i=0;i<k;i++) {
-            nums[(nums.length-k) + i] = temp[i];
+        reverse(0, k-1, nums);
+        reverse(k, nums.length-1, nums);
+        reverse(0, nums.length-1, nums);
+    }
+
+    private void reverse(int start, int end, int[] arr) {
+        while(start < end) {
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
         }
     }
 
